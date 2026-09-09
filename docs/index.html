@@ -41,24 +41,36 @@
   }
 
   section + section { margin-top: 48px; }
+  .download-block + section { margin-top: 56px; }
 
   h1 {
     margin: 0 0 10px;
-    font-size: 30px;
-    line-height: 1.3;
-    letter-spacing: -0.4px;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
   }
 
   h2 {
-    margin: 0 0 14px;
-    font-size: 16px;
+    margin: 0 0 16px;
+    font-size: 24px;
+    line-height: 1.35;
     font-weight: 700;
+  }
+
+  .section-number {
+    margin-right: 8px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    vertical-align: 3px;
   }
 
   .lead {
     margin: 0;
     color: var(--muted);
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.6;
   }
 
   /* ---- 다운로드 영역: 페이지에서 가장 눈에 띄어야 하는 부분 ---- */
@@ -130,7 +142,8 @@
   .note {
     margin: 0;
     color: var(--muted);
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.75;
   }
 
   .note strong {
@@ -157,6 +170,25 @@
     font-weight: 700;
   }
 
+  .warning-image {
+    margin: 28px 0 14px;
+  }
+
+  .warning-image img {
+    display: block;
+    width: 72%;
+    margin: 0 auto;
+    height: auto;
+    border: 1px solid var(--border-soft);
+    border-radius: 4px;
+  }
+
+  .warning-image figcaption {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
   /* ---- 자주 묻는 질문 ---- */
   .faq {
     margin-top: 4px;
@@ -168,17 +200,20 @@
     border-bottom: 1px solid var(--border-soft);
   }
 
+  .faq-item:first-child { padding-top: 8px; }
+
   .faq-item .q {
     margin: 0 0 6px;
     color: var(--text);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
   }
 
   .faq-item .a {
     margin: 0;
     color: var(--muted);
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.75;
   }
 
   hr {
@@ -208,7 +243,10 @@
 
   @media (max-width: 600px) {
     .page { padding: 40px 20px 44px; }
-    h1 { font-size: 26px; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 21px; }
+    .lead { font-size: 16px; }
+    .warning-image img { width: 100%; }
     section + section { margin-top: 40px; }
     .download-block { padding: 26px 20px; }
     .download-button { padding: 21px 20px; }
@@ -241,7 +279,7 @@
 
   <!-- 3. 설치 안내 -->
   <section>
-    <h2>설치 방법</h2>
+    <h2><span class="section-number">01.</span>설치 방법</h2>
     <ol>
       <li>위 버튼을 눌러 설치파일을 다운로드합니다.</li>
       <li>다운로드한 설치파일을 실행합니다.</li>
@@ -255,7 +293,7 @@
 
   <!-- 4. 라이선스 안내 -->
   <section>
-    <h2>라이선스</h2>
+    <h2><span class="section-number">02.</span>라이선스</h2>
     <p class="note">
       차단문을 사용하려면 구매 시 제공된 라이선스 키가 필요합니다.
       한 번 입력하면 다시 입력하지 않아도 되며, 인증은 인터넷 연결 없이 사용자의 PC 안에서만 이루어집니다.
@@ -271,7 +309,7 @@
 
   <!-- 5. 사용 전 확인 -->
   <section>
-    <h2>차단을 시작하기 전에</h2>
+    <h2><span class="section-number">03.</span>차단을 시작하기 전에</h2>
     <p class="note">
       차단문은 설정한 종료 시각까지 선택한 프로그램의 실행을 제한합니다.
       시작하기 전에 아래를 확인해주세요.
@@ -285,7 +323,7 @@
 
   <!-- 6. 보안 경고 안내 -->
   <section>
-    <h2>Windows 보안 경고가 뜰 때</h2>
+    <h2><span class="section-number">04.</span>Windows 보안 경고가 뜰 때</h2>
     <p class="note">
       설치파일을 실행하면 아래와 같은 파란 화면이 표시될 수 있습니다.
       Windows가 아직 널리 알려지지 않은 프로그램에 대해 표시하는 안내이며, 오류가 아닙니다.
@@ -298,6 +336,10 @@
     <p class="note">
       진행하려면 아래 순서를 따라주세요.
     </p>
+    <figure class="warning-image">
+      <img src="추가정보.png" alt="Windows의 PC 보호 화면에서 추가 정보가 빨간색으로 표시된 모습">
+      <figcaption>먼저 화면 아래의 ‘추가 정보’를 누릅니다.</figcaption>
+    </figure>
     <ol>
       <li><strong>추가 정보</strong>를 누릅니다.</li>
       <li>앱 이름이 <strong id="smartscreen-filename"></strong> 인지 확인합니다.</li>
@@ -319,7 +361,7 @@
 
   <!-- 7. 재다운로드 안내 -->
   <section>
-    <h2>재다운로드</h2>
+    <h2><span class="section-number">05.</span>재다운로드</h2>
     <p class="note">
       기존 구매자도 이 페이지에서 최신 버전을 다시 다운로드할 수 있습니다.
       PC를 바꾸거나 프로그램을 다시 설치할 때도 이 페이지에서 받으시면 됩니다.
@@ -328,7 +370,7 @@
 
   <!-- 8. 자주 묻는 질문 -->
   <section>
-    <h2>자주 묻는 질문</h2>
+    <h2><span class="section-number">06.</span>자주 묻는 질문</h2>
     <div class="faq">
 
       <div class="faq-item">
@@ -381,7 +423,7 @@
 
   <!-- 9. 고객지원 -->
   <section>
-    <h2>고객지원</h2>
+    <h2><span class="section-number">07.</span>고객지원</h2>
     <p class="note">
       설치 또는 실행에 문제가 있다면 스마트스토어 톡톡으로 문의해주세요.
     </p>
