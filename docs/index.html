@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>차단문 다운로드</title>
+<meta name="description" content="선택한 프로그램을 내가 정한 시간까지 차단하는 Windows 프로그램, 차단문 공식 다운로드 페이지입니다.">
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text: #202124;
+    --muted: #6b7280;
+    --border: #d6dae0;
+    --border-soft: #ecedf1;
+    --accent: #2563a9;
+    --accent-hover: #1f5592;
+    --accent-soft: #eaf2fb;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Malgun Gothic", "맑은 고딕", -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 64px 24px 56px;
+  }
+
+  section + section { margin-top: 48px; }
+
+  h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+    line-height: 1.3;
+    letter-spacing: -0.4px;
+  }
+
+  h2 {
+    margin: 0 0 14px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .lead {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+  }
+
+  /* ---- 다운로드 영역: 페이지에서 가장 눈에 띄어야 하는 부분 ---- */
+  .download-block {
+    margin-top: 40px;
+    padding: 32px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .version {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .download-button {
+    display: block;
+    width: 100%;
+    padding: 19px 24px;
+    background: var(--accent);
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.12s ease;
+  }
+
+  .download-button:hover { background: var(--accent-hover); }
+
+  .download-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .os {
+    margin: 18px 0 0;
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  .filename {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    font-family: Consolas, "SF Mono", Menlo, monospace;
+    word-break: break-all;
+  }
+
+  /* ---- 설치 안내 ---- */
+  ol {
+    margin: 0;
+    padding-left: 22px;
+  }
+
+  ol li { margin-bottom: 6px; }
+  ol li:last-child { margin-bottom: 0; }
+
+  .note {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .note strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  hr {
+    margin: 48px 0 0;
+    border: 0;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  footer {
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  footer .name {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  footer .copyright {
+    margin-top: 12px;
+    color: #9ca3af;
+  }
+
+  noscript .note { color: #b91c1c; }
+
+  @media (max-width: 600px) {
+    .page { padding: 40px 20px 44px; }
+    h1 { font-size: 26px; }
+    section + section { margin-top: 40px; }
+    .download-block { padding: 26px 20px; }
+    .download-button { padding: 21px 20px; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- 1. 상단 -->
+  <header>
+    <h1>차단문</h1>
+    <p class="lead">선택한 프로그램을 내가 정한 시간까지 차단하는 Windows 프로그램</p>
+  </header>
+
+  <!-- 2. 메인 다운로드 영역 -->
+  <div class="download-block">
+    <span class="version" id="version">버전 정보를 불러오는 중</span>
+    <!-- href 는 아래 script 의 CONFIG 값으로 채워집니다 -->
+    <a class="download-button" id="download-button" href="#">차단문 다운로드</a>
+    <p class="os">Windows 10 / Windows 11</p>
+    <p class="filename" id="filename"></p>
+    <noscript>
+      <p class="note" style="margin-top:16px">
+        브라우저의 JavaScript 가 꺼져 있어 다운로드 링크를 표시할 수 없습니다.
+        JavaScript 를 켜고 새로고침해 주세요.
+      </p>
+    </noscript>
+  </div>
+
+  <!-- 3. 설치 안내 -->
+  <section>
+    <h2>설치 방법</h2>
+    <ol>
+      <li>위 버튼을 눌러 설치파일을 다운로드합니다.</li>
+      <li>다운로드한 설치파일을 실행합니다.</li>
+      <li>안내에 따라 설치를 진행합니다.</li>
+      <li>설치가 끝나면 차단문을 실행합니다.</li>
+    </ol>
+  </section>
+
+  <!-- 4. 보안 안내 -->
+  <section>
+    <h2>보안 안내</h2>
+    <p class="note">
+      Windows 보안 안내가 표시될 경우 게시자와 파일명을 확인한 뒤 진행해주세요.
+    </p>
+  </section>
+
+  <!-- 5. 재다운로드 안내 -->
+  <section>
+    <h2>재다운로드</h2>
+    <p class="note">
+      기존 구매자도 이 페이지에서 최신 버전을 다시 다운로드할 수 있습니다.
+    </p>
+  </section>
+
+  <!-- 6. 고객지원 -->
+  <section>
+    <h2>고객지원</h2>
+    <p class="note">
+      설치 또는 실행에 문제가 있다면 스마트스토어 톡톡으로 문의해주세요.
+    </p>
+  </section>
+
+  <!-- 7. 하단 정보 -->
+  <hr>
+  <footer>
+    <div><span class="name">차단문</span></div>
+    <div>Windows용 소프트웨어</div>
+    <div id="footer-version"></div>
+    <div class="copyright">© 2026 차단문. All rights reserved.</div>
+  </footer>
+
+</main>
+
+<script>
+/* =====================================================================
+   새 버전을 배포할 때는 아래 두 값만 수정하면 페이지 전체에 반영됩니다.
+
+     REPO    : GitHub 저장소 (형식: 사용자명/저장소명)
+     VERSION : 배포할 버전 번호
+
+   설치파일명과 다운로드 URL 은 이 두 값에서 자동으로 만들어집니다.
+   GitHub Releases 에 v{VERSION} 태그로 릴리스를 만들고
+   Chadanmun_Setup_{VERSION}.exe 파일을 첨부하면 그대로 연결됩니다.
+   ===================================================================== */
+
+const REPO = 'elbio96/Chadanmun-download';
+const VERSION = '1.0.1';
+
+// ---- 아래는 수정할 필요 없습니다 ----
+const FILE_NAME = `Chadanmun_Setup_${VERSION}.exe`;
+const DOWNLOAD_URL = `https://github.com/${REPO}/releases/download/v${VERSION}/${FILE_NAME}`;
+
+const button = document.getElementById('download-button');
+button.href = DOWNLOAD_URL;
+button.setAttribute('download', FILE_NAME);
+
+document.getElementById('version').textContent = `현재 버전 v${VERSION}`;
+document.getElementById('filename').textContent = FILE_NAME;
+document.getElementById('footer-version').textContent = `버전 ${VERSION}`;
+</script>
+</body>
+</html>
