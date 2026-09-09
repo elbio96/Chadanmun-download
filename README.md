@@ -35,21 +35,21 @@ https://elbio96.github.io/Chadanmun-download/
 페이지의 다운로드 버튼은 GitHub Releases 에 올린 파일을 가리킵니다.
 
 1. 저장소 페이지에서 **Releases → Draft a new release** 를 누릅니다.
-2. **Tag** 에 `v1.0.1` 처럼 `v` + 버전 번호를 입력합니다.
-3. `Chadanmun_Setup_1.0.1.exe` 파일을 첨부합니다.
+2. **Tag** 에 `v1.1.1` 처럼 `v` + 버전 번호를 입력합니다.
+3. `Chadanmun_Setup_1.1.1.exe` 파일을 첨부합니다.
 4. **Publish release** 를 누릅니다.
 
 태그 이름과 파일명 규칙만 지키면 페이지가 자동으로 올바른 주소를 만듭니다.
 
 | 항목 | 규칙 | 예시 |
 |---|---|---|
-| 태그 | `v` + 버전 | `v1.0.1` |
-| 파일명 | `Chadanmun_Setup_` + 버전 + `.exe` | `Chadanmun_Setup_1.0.1.exe` |
+| 태그 | `v` + 버전 | `v1.1.1` |
+| 파일명 | `Chadanmun_Setup_` + 버전 + `.exe` | `Chadanmun_Setup_1.1.1.exe` |
 
 완성되는 다운로드 주소:
 
 ```
-https://github.com/elbio96/Chadanmun-download/releases/download/v1.0.1/Chadanmun_Setup_1.0.1.exe
+https://github.com/elbio96/Chadanmun-download/releases/download/v1.1.1/Chadanmun_Setup_1.1.1.exe
 ```
 
 ---
@@ -78,7 +78,7 @@ const VERSION = '1.0.1';
 
 1. `packaging\build.ps1` 로 설치파일을 빌드합니다.
 2. GitHub 에서 `v1.0.2` 태그로 릴리스를 만들고 `Chadanmun_Setup_1.0.2.exe` 를 첨부합니다.
-3. `index.html` 에서 `VERSION` 을 `'1.0.2'` 로 바꿉니다.
+3. `index.html` 에서 `VERSION` 을 `1.0.2` 로 바꿉니다.
 4. 커밋하고 push 합니다. 1~2분 뒤 페이지에 반영됩니다.
 5. 페이지를 열어 다운로드 버튼이 실제로 파일을 받아오는지 한 번 확인합니다.
 
