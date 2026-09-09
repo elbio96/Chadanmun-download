@@ -157,12 +157,6 @@
     font-weight: 700;
   }
 
-  .screen code {
-    font-family: Consolas, "SF Mono", Menlo, monospace;
-    font-size: 13px;
-    word-break: break-all;
-  }
-
   /* ---- 자주 묻는 질문 ---- */
   .faq {
     margin-top: 4px;
@@ -321,7 +315,6 @@
     <p class="note">
       파일 이름이 위와 다르다면 실행하지 마시고 이 페이지에서 다시 받아주세요.
       이 페이지 외의 경로로 받은 파일은 안전을 보장할 수 없습니다.
-      받으신 파일이 원본과 같은지 확인하는 방법은 아래에 있습니다.
     </p>
   </section>
 
@@ -351,7 +344,7 @@
 
       <div class="faq-item">
         <p class="q">PC를 바꿨습니다. 다시 설치해도 되나요?</p>
-        <p class="a">이 페이지에서 설치파일을 받아 설치한 뒤, 가지고 계신 라이선스 키를 다시 입력하시면 됩니다. 사용 가능한 기기 범위는 스마트스토어 상품 상세페이지의 이용조건을 따릅니다.</p>
+        <p class="a">이 페이지에서 설치파일을 받아 설치한 뒤, 가지고 계신 라이선스 키를 다시 입력하시면 됩니다.</p>
       </div>
 
       <div class="faq-item">
@@ -382,22 +375,6 @@
       <div class="faq-item">
         <p class="q">백신이 차단문을 의심스러운 프로그램으로 표시해요.</p>
         <p class="a">차단문은 프로그램 실행을 막기 위해 Windows 설정을 변경하므로 일부 백신이 이를 민감하게 볼 수 있습니다. 이 페이지에서 받으신 파일이라면 그대로 진행하셔도 됩니다. 계속 문제가 있으면 톡톡으로 문의해주세요.</p>
-      </div>
-
-      <div class="faq-item">
-        <p class="q">받은 파일이 원본과 같은지 확인하고 싶어요.</p>
-        <p class="a">
-          시작 메뉴에서 <strong>PowerShell</strong>을 열고 아래 명령을 실행하면 파일의 지문(해시)이 나옵니다.
-          그 값이 아래 값과 같으면 원본 그대로입니다.
-        </p>
-        <div class="screen">
-          <span class="caption">명령</span>
-          <code id="hash-command"></code>
-        </div>
-        <div class="screen">
-          <span class="caption">SHA-256</span>
-          <code id="hash-value"></code>
-        </div>
       </div>
 
     </div>
@@ -433,20 +410,18 @@
 
 <script>
 /* =====================================================================
-   새 버전을 배포할 때는 아래 세 값만 수정하면 페이지 전체에 반영됩니다.
+   새 버전을 배포할 때는 아래 두 값만 수정하면 페이지 전체에 반영됩니다.
 
      REPO    : GitHub 저장소 (형식: 사용자명/저장소명)  — 바뀔 일 없음
      VERSION : 배포할 버전 번호
-     SHA256  : 설치파일의 SHA-256 (packaging\dist\RELEASE.txt 에 있음)
 
-   설치파일명과 다운로드 URL 은 REPO 와 VERSION 에서 자동으로 만들어집니다.
+   설치파일명과 다운로드 URL 은 이 두 값에서 자동으로 만들어집니다.
    GitHub Releases 에 v{VERSION} 태그로 릴리스를 만들고
    Chadanmun_Setup_{VERSION}.exe 파일을 첨부하면 그대로 연결됩니다.
    ===================================================================== */
 
 const REPO = 'elbio96/Chadanmun-download';
 const VERSION = '1.1.1';
-const SHA256 = '7ca5ab52e8ffd8785d8b2316ac0cbf7cd5e21c8e8830bcb3eeddf1ae3d93ff91';
 
 // ---- 아래는 수정할 필요 없습니다 ----
 const FILE_NAME = `Chadanmun_Setup_${VERSION}.exe`;
@@ -460,8 +435,6 @@ document.getElementById('version').textContent = `현재 버전 v${VERSION}`;
 document.getElementById('filename').textContent = FILE_NAME;
 document.getElementById('footer-version').textContent = `버전 ${VERSION}`;
 document.getElementById('smartscreen-filename').textContent = FILE_NAME;
-document.getElementById('hash-command').textContent = `Get-FileHash .\\${FILE_NAME} -Algorithm SHA256`;
-document.getElementById('hash-value').textContent = SHA256;
 </script>
 </body>
 </html>
